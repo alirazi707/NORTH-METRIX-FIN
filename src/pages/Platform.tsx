@@ -1,18 +1,17 @@
 import { Layout } from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Star, Users, TrendingUp, BarChart3, LineChart, PieChart, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
+import { StarBackground } from "@/components/ui/StarBackground";
 
 const features = [
   {
-    icon: Star,
     title: "Reputation Intelligence",
     description: "Aggregate reviews, ratings, and trust signals from multiple platforms. Get a unified view of your brand perception with sentiment analysis and trend detection.",
     highlights: ["Multi-platform aggregation", "Sentiment analysis", "Competitive benchmarking", "Alert systems"],
   },
   {
-    icon: Users,
     title: "User & Traction Analytics",
     description: "Track real user behavior, activation patterns, and engagement metrics. Understand what drives genuine growth and identify friction points.",
     highlights: ["User journey mapping", "Activation tracking", "Cohort analysis", "Retention metrics"],
