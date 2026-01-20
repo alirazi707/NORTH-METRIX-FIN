@@ -4,138 +4,113 @@ import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/Reveal";
 import { ArrowRight } from "lucide-react";
 import { serviceCategories } from "@/data/services";
+import { StarBackground } from "@/components/ui/StarBackground";
+import { useEffect as useReactEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const Services = () => {
   return (
     <Layout enableSnap={true}>
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-black relative overflow-hidden text-white snap-start">
-        <div className="absolute inset-0">
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#A4133C]/10 rounded-full blur-3xl" />
-        </div>
-        <div className="relative container-max section-padding">
-          <div className="max-w-3xl">
-            <Reveal>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-6">
-                <span className="text-sm font-medium text-white">Services</span>
-              </div>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light text-white mb-6">
-                Digital Enablement & Growth Services
-              </h1>
-            </Reveal>
-            <Reveal delay={0.2}>
-              <p className="text-lg sm:text-xl text-white/70 font-light mb-8">
-                Beyond analytics, we help businesses execute their digital presence and growth through comprehensive platform development, marketplace enablement, and marketing systems.
-              </p>
-            </Reveal>
-            <Reveal delay={0.3}>
-              <Button variant="hero" size="lg" asChild className="bg-white text-black hover:bg-white/90">
-                <Link to="/contact">
-                  Discuss Your Project
-                  <ArrowRight className="ml-2" />
-                </Link>
-              </Button>
-            </Reveal>
-          </div>
+      {/* Hero Section - 100vh with Stars */}
+      <section className="h-screen w-full bg-black relative flex items-center justify-center overflow-hidden snap-start">
+        <StarBackground />
+
+        {/* Subtle dark gradient overlay for depth */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/80 pointer-events-none" />
+
+        <div className="relative container-max section-padding z-10 text-center">
+          <Reveal>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-sm">
+              <span className="text-sm font-medium text-white/90 tracking-wide">Services</span>
+            </div>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-light text-white mb-8 tracking-tight">
+              Digital Enablement & <span className="font-medium text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/50">Growth</span>
+            </h1>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <p className="text-xl sm:text-2xl text-white/60 font-light mb-10 max-w-3xl mx-auto leading-relaxed">
+              Beyond analytics, we execute your digital presence through comprehensive platform development and marketing systems.
+            </p>
+          </Reveal>
+          <Reveal delay={0.3}>
+            <Button variant="hero" size="lg" asChild className="bg-white text-black hover:bg-white/90 rounded-full px-8 h-14 text-lg">
+              <Link to="/contact">
+                Discuss Your Project
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Link>
+            </Button>
+          </Reveal>
         </div>
       </section>
 
-      {/* Service Categories */}
-      {serviceCategories.map((category, index) => (
-        <section
-          key={category.title}
-          className={`py-24 ${index % 2 === 0 ? "bg-background" : "bg-muted"} snap-start`}
-        >
-          <div className="container-max section-padding">
-            <Reveal>
-              <div className="grid lg:grid-cols-2 gap-16">
-                {/* Category Header */}
-                <div>
-                  <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
-                    <category.icon className="w-8 h-8 text-primary" />
-                  </div>
-                  <h2 className="text-3xl font-bold text-foreground mb-4">
-                    {category.title}
-                  </h2>
-                  <p className="text-lg text-muted-foreground leading-relaxed">
-                    {/* Fallback for description since shared data might not have it yet unless updated */}
-                    Typically, we provide tailored {category.title} solutions to accelerate your growth.
-                  </p>
-                </div>
+      {/* Services Grid Section */}
+      <section className="min-h-screen py-40 relative flex items-center snap-start" id="services-grid">
+        {/* Premium Soft Gradient Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e1b4b] to-[#312e81]" />
 
-                {/* Services List */}
-                <div className="space-y-6">
-                  {category.services.map((service, idx) => (
-                    <Reveal key={service} delay={0.1 * idx}>
-                      <div
-                        className="p-6 rounded-xl bg-card border border-border hover:border-primary/30 transition-all duration-300"
-                      >
-                        <h3 className="text-lg font-semibold text-card-foreground mb-2">
-                          {service}
-                        </h3>
-                      </div>
-                    </Reveal>
-                  ))}
-                </div>
-              </div>
+        <div className="relative container-max section-padding z-10">
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            <Reveal>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-6">
+                Comprehensive <br /><span className="font-semibold">Service Ecosystem</span>
+              </h2>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <p className="text-lg text-white/60 font-light">
+                Tailored solutions designed to build, optimize, and scale your digital infrastructure.
+              </p>
             </Reveal>
           </div>
-        </section>
-      ))}
 
-      {/* Process/Approach (Optional) */}
-      <section className="py-24 bg-background snap-start">
-        <div className="container-max section-padding text-center">
-          <div className="max-w-2xl mx-auto">
-            <h2 className="text-3xl font-bold text-foreground mb-6">Our Approach</h2>
-            <p className="text-muted-foreground mb-12">
-              We don't just deliver services; we build systems. Our process is collaborative, data-driven, and focused on long-term value creation.
-            </p>
-          </div>
-          {/* Steps Grid - Simplified for now */}
-          <div className="grid md:grid-cols-4 gap-6">
-            {[
-              { step: "01", title: "Audit & Strategy", desc: "Understanding your current state." },
-              { step: "02", title: "Design & Build", desc: "Creating the infrastructure." },
-              { step: "03", title: "Launch & Scale", desc: "Go-to-market execution." },
-              { step: "04", title: "Measure & Optimize", desc: "Continuous improvement." }
-            ].map((s) => (
-              <div key={s.step} className="p-6 rounded-2xl bg-muted border border-border">
-                <div className="text-4xl font-bold text-primary/20 mb-4">{s.step}</div>
-                <h3 className="text-lg font-semibold mb-2">{s.title}</h3>
-                <p className="text-sm text-muted-foreground">{s.desc}</p>
-              </div>
+          <div className="grid lg:grid-cols-2 gap-12">
+            {serviceCategories.map((category, index) => (
+              <Reveal key={category.title} delay={0.1 + index * 0.1} overflow="visible" className="h-full">
+                {/* Premium Card Layout */}
+                <div className="h-full group p-10 rounded-[2rem] bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/10 hover:shadow-2xl hover:shadow-indigo-500/20 transition-all duration-500 flex flex-col hover:-translate-y-3">
+                  <div className="mb-6">
+                    <span className="text-xs font-bold tracking-[0.2em] text-white/40 uppercase">
+                      CATEGORY 0{index + 1}
+                    </span>
+                  </div>
+                  <h3 className="text-3xl font-semibold text-white mb-6 group-hover:text-blue-200 transition-colors">
+                    {category.title}
+                  </h3>
+
+                  <div className="mt-auto pt-6 border-t border-white/5">
+                    <ul className="grid sm:grid-cols-2 gap-4">
+                      {category.services.map((service) => (
+                        <li key={service} className="text-base text-white/60 flex items-start gap-3 group-hover:text-white/90 transition-colors">
+                          <span className="w-1.5 h-1.5 rounded-full bg-white/40 mt-2 flex-shrink-0" />
+                          {service}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-hero snap-start">
+      <section className="py-32 bg-black snap-start flex items-center justify-center">
         <div className="container-max section-padding text-center">
-          <h2 className="text-3xl font-bold text-soft-gray mb-4">
-            Build With Us
-          </h2>
-          <p className="text-soft-gray/70 mb-8 max-w-xl mx-auto">
-            Ready to upgrade your digital infrastructure? Let's discuss your specific needs.
-          </p>
-          <Button variant="hero" size="lg" asChild>
-            <Link to="/contact">
-              Start a Project
-              <ArrowRight className="ml-2" />
-            </Link>
-          </Button>
+          <Reveal>
+            <h2 className="text-4xl font-bold text-white mb-8">
+              Ready to build?
+            </h2>
+            <Button variant="hero" size="lg" asChild className="bg-white text-black hover:bg-white/90 rounded-full px-10 h-16 text-lg">
+              <Link to="/contact">Start a Project</Link>
+            </Button>
+          </Reveal>
         </div>
       </section>
     </Layout>
   );
 };
-
-// Enhancement: Scroll to hash when location changes
-import { useEffect as useReactEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 
 const ServicesWrapper = () => {
   const { hash } = useLocation();
@@ -143,19 +118,13 @@ const ServicesWrapper = () => {
   useReactEffect(() => {
     if (hash) {
       const element = document.getElementById(hash.replace("#", ""));
-      const scrollContainer = document.getElementById("scroll-container") || window;
-
       if (element) {
-        // Small timeout to ensure DOM is ready/layout is settled
         setTimeout(() => {
           element.scrollIntoView({ behavior: "smooth", block: "start" });
         }, 100);
       }
     } else {
-      // Scroll to top if no hash
-      const scrollContainer = document.getElementById("scroll-container");
-      if (scrollContainer) scrollContainer.scrollTo(0, 0);
-      else window.scrollTo(0, 0);
+      window.scrollTo(0, 0);
     }
   }, [hash]);
 
