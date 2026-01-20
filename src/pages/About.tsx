@@ -58,22 +58,10 @@ const About = () => {
             {/* Floating Logo */}
             <div className="flex justify-center lg:justify-end">
               <Reveal delay={0.3}>
-                <motion.div
-                  animate={{
-                    y: [0, -20, 0],
-                    rotate: [0, 2, -2, 0],
-                    filter: ["drop-shadow(0 0 20px rgba(255,255,255,0.1))", "drop-shadow(0 0 40px rgba(255,255,255,0.2))", "drop-shadow(0 0 20px rgba(255,255,255,0.1))"]
-                  }}
-                  transition={{
-                    duration: 6,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                  className="relative"
-                >
+                <div className="relative">
                   <div className="absolute inset-0 bg-white/5 blur-3xl rounded-full -z-10" />
                   <img src={logo} alt="NorthMetriX" className="w-64 sm:w-80 h-auto object-contain invert brightness-0 opacity-90" />
-                </motion.div>
+                </div>
               </Reveal>
             </div>
           </div>
