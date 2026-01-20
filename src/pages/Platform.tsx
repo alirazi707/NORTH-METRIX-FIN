@@ -61,7 +61,7 @@ const Platform = () => {
       </section>
 
       {/* Pillars Section - Premium Gradient Background */}
-      <section className="min-h-screen py-24 relative flex items-center snap-start">
+      <section className="min-h-screen py-40 relative flex items-center snap-start">
         {/* Premium Soft Gradient Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e1b4b] to-[#312e81]" />
 
@@ -81,7 +81,7 @@ const Platform = () => {
 
           <div className="grid lg:grid-cols-3 gap-10">
             {features.map((feature, index) => (
-              <Reveal key={feature.title} delay={0.1 + index * 0.1}>
+              <Reveal key={feature.title} delay={0.1 + index * 0.1} overflow="visible">
                 {/* Premium Card - No Icon, No Image Placeholder */}
                 <div className="h-full group p-8 rounded-[2rem] bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/10 hover:shadow-2xl hover:shadow-indigo-500/20 transition-all duration-500 flex flex-col hover:-translate-y-3">
                   <div className="mb-6">

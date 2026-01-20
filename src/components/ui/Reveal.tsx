@@ -5,9 +5,10 @@ interface RevealProps {
     children: React.ReactNode;
     width?: "fit-content" | "100%";
     delay?: number;
+    overflow?: "hidden" | "visible";
 }
 
-export const Reveal = ({ children, width = "fit-content", delay = 0 }: RevealProps) => {
+export const Reveal = ({ children, width = "fit-content", delay = 0, overflow = "hidden" }: RevealProps) => {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: false, margin: "-50px" });
     const mainControls = useAnimation();
@@ -21,7 +22,7 @@ export const Reveal = ({ children, width = "fit-content", delay = 0 }: RevealPro
     }, [isInView, mainControls]);
 
     return (
-        <div ref={ref} style={{ position: "relative", width, overflow: "hidden" }}>
+        <div ref={ref} style={{ position: "relative", width, overflow }}>
             <motion.div
                 variants={{
                     hidden: { opacity: 0, y: 75 },
