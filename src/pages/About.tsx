@@ -121,9 +121,11 @@ const About = () => {
         </div>
       </section>
 
-      {/* Mission Section (Second) */}
-      <section className="py-32 bg-black snap-start">
-        <div className="container-max section-padding">
+      {/* Mission Section (Second) - Unified Gradient */}
+      <section className="py-32 relative snap-start">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0c0a09] via-[#1c1917] to-[#292524]" />
+
+        <div className="container-max section-padding relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <Reveal>
               <h2 className="text-4xl sm:text-5xl font-light text-white mb-8">
@@ -145,9 +147,11 @@ const About = () => {
         </div>
       </section>
 
-      {/* Values Section (Third) - Premium Cards */}
-      <section className="py-32 bg-[#050505] snap-start">
-        <div className="container-max section-padding">
+      {/* Values Section (Third) - Unified Gradient */}
+      <section className="py-32 relative snap-start">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0c0a09] via-[#1c1917] to-[#292524]" />
+
+        <div className="container-max section-padding relative z-10">
           <div className="text-center max-w-2xl mx-auto mb-20">
             <Reveal>
               <h2 className="text-4xl font-bold text-white mb-6">
