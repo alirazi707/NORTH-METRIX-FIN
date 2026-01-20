@@ -79,11 +79,11 @@ const Platform = () => {
             </Reveal>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-3 gap-10">
             {features.map((feature, index) => (
               <Reveal key={feature.title} delay={0.1 + index * 0.1}>
                 {/* Premium Card - No Icon, No Image Placeholder */}
-                <div className="h-full group p-8 rounded-[2rem] bg-white/5 border border-white/10 hover:border-white/20 hover:bg-white/[0.07] transition-all duration-500 backdrop-blur-md flex flex-col hover:-translate-y-2">
+                <div className="h-full group p-8 rounded-[2rem] bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/10 hover:shadow-2xl hover:shadow-indigo-500/20 transition-all duration-500 flex flex-col hover:-translate-y-3">
                   <div className="mb-6">
                     <span className="text-xs font-bold tracking-[0.2em] text-white/40 uppercase">
                       0{index + 1}
