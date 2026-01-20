@@ -81,7 +81,7 @@ const Platform = () => {
 
           <div className="grid lg:grid-cols-3 gap-10">
             {features.map((feature, index) => (
-              <Reveal key={feature.title} delay={0.1 + index * 0.1} overflow="visible">
+              <Reveal key={feature.title} delay={0.1 + index * 0.1} overflow="visible" className="h-full">
                 {/* Premium Card - No Icon, No Image Placeholder */}
                 <div className="h-full group p-8 rounded-[2rem] bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/10 hover:shadow-2xl hover:shadow-indigo-500/20 transition-all duration-500 flex flex-col hover:-translate-y-3">
                   <div className="mb-6">

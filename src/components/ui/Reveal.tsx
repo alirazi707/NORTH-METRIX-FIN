@@ -6,9 +6,10 @@ interface RevealProps {
     width?: "fit-content" | "100%";
     delay?: number;
     overflow?: "hidden" | "visible";
+    className?: string;
 }
 
-export const Reveal = ({ children, width = "fit-content", delay = 0, overflow = "hidden" }: RevealProps) => {
+export const Reveal = ({ children, width = "fit-content", delay = 0, overflow = "hidden", className = "" }: RevealProps) => {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: false, margin: "-50px" });
     const mainControls = useAnimation();
@@ -22,7 +23,7 @@ export const Reveal = ({ children, width = "fit-content", delay = 0, overflow = 
     }, [isInView, mainControls]);
 
     return (
-        <div ref={ref} style={{ position: "relative", width, overflow }}>
+        <div ref={ref} className={className} style={{ position: "relative", width, overflow }}>
             <motion.div
                 variants={{
                     hidden: { opacity: 0, y: 75 },
@@ -31,6 +32,7 @@ export const Reveal = ({ children, width = "fit-content", delay = 0, overflow = 
                 initial="hidden"
                 animate={mainControls}
                 transition={{ duration: 0.5, delay: delay, ease: "easeOut" }}
+                className="h-full"
             >
                 {children}
             </motion.div>
