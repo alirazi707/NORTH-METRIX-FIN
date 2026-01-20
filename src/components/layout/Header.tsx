@@ -40,7 +40,7 @@ export function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled || servicesOpen
-        ? "bg-black/70 backdrop-blur-2xl backdrop-saturate-200 border-b border-white/10 py-4 shadow-xl"
+        ? "bg-black/50 backdrop-blur-2xl backdrop-saturate-200 border-b border-white/10 py-4 shadow-xl"
         : "bg-transparent py-6"
         }`}
       onMouseLeave={() => setServicesOpen(false)}
@@ -68,12 +68,12 @@ export function Header() {
                 <Link
                   to={item.href}
                   className={`text-sm tracking-widest uppercase font-medium transition-colors duration-300 relative group flex items-center gap-1 ${isActive(item.href) || (item.hasDropdown && servicesOpen)
-                    ? "text-[#A4133C]" // Active state
+                    ? "text-white" // Active state
                     : "text-white/60 hover:text-white" // Inactive state
                     }`}
                 >
                   {item.name}
-                  <span className={`absolute left-0 bottom-0 w-full h-[1px] bg-[#A4133C] transform transition-transform duration-300 origin-left ${isActive(item.href) ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                  <span className={`absolute left-0 bottom-0 w-full h-[1px] bg-white transform transition-transform duration-300 origin-left ${isActive(item.href) ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                     }`} />
                 </Link>
               </div>
