@@ -5,8 +5,8 @@ import { Reveal } from "@/components/ui/Reveal";
 
 export function CTASection() {
   return (
-    <section className="py-24 bg-black text-white overflow-hidden relative">
-      <div className="absolute inset-0 bg-[#A4133C]/5 z-0" />
+    <section className="py-24 text-white overflow-hidden relative">
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e1b4b] to-[#312e81]" />
 
       <div className="container-max section-padding relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -14,7 +14,7 @@ export function CTASection() {
             <Reveal>
               <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light mb-6">
                 Ready to transform your <br />
-                <span className="text-[#A4133C]">digital reality?</span>
+                <span className="text-white">digital reality?</span>
               </h2>
             </Reveal>
             <Reveal delay={0.1}>

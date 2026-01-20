@@ -44,11 +44,12 @@ const certifications = [
 
 export function TrustMetricsPanel() {
   return (
-    <section className="py-24 bg-black text-white border-y border-white/10">
-      <div className="container-max section-padding">
+    <section className="py-24 relative text-white border-y border-white/10">
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e1b4b] to-[#312e81]" />
+      <div className="container-max section-padding relative z-10">
         <MotionWrapper>
           <div className="text-center mb-16">
-            <span className="text-sm font-bold text-[#A4133C] uppercase tracking-widest">
+            <span className="text-sm font-bold text-white/80 uppercase tracking-widest">
               Trust & Compliance
             </span>
             <h2 className="text-3xl sm:text-5xl font-light text-white mt-4 tracking-tight">
@@ -61,9 +62,9 @@ export function TrustMetricsPanel() {
         <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {metrics.map((metric) => (
             <StaggerItem key={metric.label}>
-              <div className="text-center p-8 rounded-none bg-[#0A0A0A] border border-white/10 hover:border-[#A4133C] transition-colors duration-300 group">
-                <div className="w-14 h-14 mx-auto mb-6 flex items-center justify-center rounded-full bg-white/5 group-hover:bg-[#A4133C]/20 transition-colors">
-                  <metric.icon className="w-7 h-7 text-white/50 group-hover:text-[#A4133C] transition-colors" />
+              <div className="text-center p-8 h-full rounded-[2rem] bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/10 hover:shadow-2xl hover:shadow-indigo-500/20 transition-all duration-500 group hover:-translate-y-3">
+                <div className="w-14 h-14 mx-auto mb-6 flex items-center justify-center rounded-full bg-white/5 group-hover:bg-blue-500/20 transition-colors">
+                  <metric.icon className="w-7 h-7 text-white/50 group-hover:text-blue-400 transition-colors" />
                 </div>
                 <div className="text-4xl font-bold text-white mb-2">
                   <CountUp
@@ -86,11 +87,11 @@ export function TrustMetricsPanel() {
             {certifications.map((cert) => (
               <div
                 key={cert.name}
-                className="flex items-center gap-3 px-6 py-3 rounded-full bg-transparent border border-white/10 hover:border-[#A4133C] transition-colors duration-300"
+                className="flex items-center gap-3 px-6 py-3 rounded-full bg-transparent border border-white/10 hover:border-white/50 transition-colors duration-300"
               >
-                <CheckCircle className="w-4 h-4 text-[#A4133C]" />
+                <CheckCircle className="w-4 h-4 text-white" />
                 <span className="text-sm font-medium text-white/70">{cert.name}</span>
-                <span className="text-xs text-[#A4133C] font-bold uppercase tracking-wider">{cert.status}</span>
+                <span className="text-xs text-white font-bold uppercase tracking-wider">{cert.status}</span>
               </div>
             ))}
           </div>

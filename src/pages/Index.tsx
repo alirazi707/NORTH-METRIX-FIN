@@ -12,6 +12,7 @@ import { InsightsSection } from "@/components/home/InsightsSection";
 import { TrustSection } from "@/components/home/TrustSection";
 import { CTASection } from "@/components/home/CTASection";
 import { ScrollLogoAnimation } from "@/components/home/ScrollLogoAnimation";
+import { StarBackground } from "@/components/ui/StarBackground";
 import { useState, useCallback } from "react";
 import { motion } from "framer-motion";
 
