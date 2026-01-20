@@ -2,8 +2,10 @@ import { Layout } from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Target, Lightbulb, Users, ArrowRight } from "lucide-react";
-import logo from "@/assets/logo-big-white.svg"; // Updated logo import
+import logo from "@/assets/logo-big-white.svg";
 import { Reveal } from "@/components/ui/Reveal";
+import { StarBackground } from "@/components/ui/StarBackground";
+import { motion } from "framer-motion";
 
 const values = [
   {
@@ -26,132 +28,174 @@ const values = [
 const About = () => {
   return (
     <Layout enableSnap={true}>
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-black relative overflow-hidden text-white snap-start">
-        <div className="absolute inset-0">
-          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#A4133C]/10 rounded-full blur-3xl" />
-        </div>
-        <div className="relative container-max section-padding">
+      {/* Hero Section - With Star Background & Floating Logo */}
+      <section className="min-h-screen w-full bg-black relative flex items-center justify-center overflow-hidden snap-start">
+        <StarBackground />
+
+        {/* Subtle dark gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/80 pointer-events-none" />
+
+        <div className="relative container-max section-padding z-10 w-full">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <Reveal>
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-6">
-                  <span className="text-sm font-medium text-white">About Us</span>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-6 backdrop-blur-sm">
+                  <span className="text-sm font-medium text-white/90 tracking-wide">About Us</span>
                 </div>
               </Reveal>
               <Reveal delay={0.1}>
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light text-white mb-6">
-                  The Story Behind NorthMetriX
+                <h1 className="text-5xl sm:text-6xl lg:text-7xl font-light text-white mb-8 tracking-tight">
+                  The Story Behind <br /> <span className="font-medium text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/50">NorthMetriX</span>
                 </h1>
               </Reveal>
               <Reveal delay={0.2}>
-                <p className="text-lg sm:text-xl text-white/70 font-light">
+                <p className="text-xl text-white/60 font-light mb-10 max-w-xl leading-relaxed">
                   We started with a simple question: Why is it so hard for businesses to measure what truly matters for growth?
                 </p>
               </Reveal>
             </div>
-            <div className="flex justify-center">
+
+            {/* Floating Logo */}
+            <div className="flex justify-center lg:justify-end">
               <Reveal delay={0.3}>
-                <img src={logo} alt="NorthMetriX" className="w-60 h-auto object-contain invert brightness-0" />
+                <motion.div
+                  animate={{
+                    y: [0, -20, 0],
+                    rotate: [0, 2, -2, 0],
+                    filter: ["drop-shadow(0 0 20px rgba(255,255,255,0.1))", "drop-shadow(0 0 40px rgba(255,255,255,0.2))", "drop-shadow(0 0 20px rgba(255,255,255,0.1))"]
+                  }}
+                  transition={{
+                    duration: 6,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                  className="relative"
+                >
+                  <div className="absolute inset-0 bg-white/5 blur-3xl rounded-full -z-10" />
+                  <img src={logo} alt="NorthMetriX" className="w-64 sm:w-80 h-auto object-contain invert brightness-0 opacity-90" />
+                </motion.div>
               </Reveal>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Mission */}
-      <section className="py-24 bg-background snap-start">
-        <div className="container-max section-padding">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
-              Our Mission
-            </h2>
-            <p className="text-xl text-muted-foreground leading-relaxed mb-8">
-              To help businesses measure, build, and scale trust, user traction, and performance using real data and intelligent metrics. We believe growth should be transparent, ethical, and sustainable.
-            </p>
-            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary/10 border border-primary/20">
-              <span className="text-lg font-medium text-primary">Measure What Matters</span>
-            </div>
+      {/* Vision Section (First) - Premium Gradient */}
+      <section className="min-h-[80vh] py-32 relative flex items-center snap-start">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0c0a09] via-[#1c1917] to-[#292524]" />
+
+        <div className="relative container-max section-padding z-10">
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+            <Reveal>
+              <div>
+                <h2 className="text-4xl sm:text-5xl font-light text-white mb-8">
+                  Our Vision
+                </h2>
+                <div className="space-y-6 text-lg text-white/60 font-light leading-relaxed">
+                  <p>
+                    We envision a world where every business, regardless of size or industry, has access to the same quality of growth intelligence that was once reserved for large enterprises.
+                  </p>
+                  <p>
+                    A world where growth is measured honestly, trust is built authentically, and businesses compete on the strength of their value, not the depth of their pockets.
+                  </p>
+                  <p className="text-white">
+                    NorthMetriX is building the infrastructure to make that vision a reality.
+                  </p>
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.2}>
+              <div className="p-10 rounded-[2rem] bg-white/5 border border-white/10 backdrop-blur-md relative overflow-hidden group">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+                <blockquote className="text-2xl text-white font-light leading-relaxed relative z-10 italic">
+                  "The future belongs to businesses that can see clearly through the noise and act on what truly matters."
+                </blockquote>
+                <div className="mt-8 flex items-center gap-4">
+                  <div className="h-[1px] w-12 bg-white/20" />
+                  <p className="text-white/40 text-sm tracking-widest uppercase">— NorthMetriX Team</p>
+                </div>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
 
-      {/* Values */}
-      <section className="py-24 bg-muted snap-start">
+      {/* Mission Section (Second) */}
+      <section className="py-32 bg-black snap-start">
         <div className="container-max section-padding">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold text-foreground mb-4">
-              Our Values
-            </h2>
-            <p className="text-muted-foreground">
-              The principles that guide everything we build and every decision we make.
-            </p>
+          <div className="max-w-4xl mx-auto text-center">
+            <Reveal>
+              <h2 className="text-4xl sm:text-5xl font-light text-white mb-8">
+                Our Mission
+              </h2>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <p className="text-xl sm:text-2xl text-white/60 font-light leading-relaxed mb-12">
+                To help businesses measure, build, and scale trust, user traction, and performance using real data and intelligent metrics. We believe growth should be <span className="text-white">transparent, ethical, and sustainable</span>.
+              </p>
+            </Reveal>
+            <Reveal delay={0.2}>
+              <div className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors cursor-default">
+                <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
+                <span className="text-lg font-medium text-white tracking-wide">Measure What Matters</span>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Values Section (Third) - Premium Cards */}
+      <section className="py-32 bg-[#050505] snap-start">
+        <div className="container-max section-padding">
+          <div className="text-center max-w-2xl mx-auto mb-20">
+            <Reveal>
+              <h2 className="text-4xl font-bold text-white mb-6">
+                Our Values
+              </h2>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <p className="text-lg text-white/50">
+                The principles that guide everything we build and every decision we make.
+              </p>
+            </Reveal>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {values.map((value) => (
-              <div
-                key={value.title}
-                className="p-8 rounded-2xl bg-card border border-border text-center"
-              >
-                <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
-                  <value.icon className="w-8 h-8 text-primary" />
+            {values.map((value, index) => (
+              <Reveal key={value.title} delay={0.1 + index * 0.1} overflow="visible" className="h-full">
+                <div
+                  className="h-full p-8 rounded-[2rem] bg-white/5 border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all duration-300 group hover:-translate-y-2"
+                >
+                  <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center mb-6 border border-white/5 group-hover:border-white/10 group-hover:bg-white/10 transition-colors">
+                    <value.icon className="w-7 h-7 text-white/80 group-hover:text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-4">
+                    {value.title}
+                  </h3>
+                  <p className="text-white/50 leading-relaxed font-light group-hover:text-white/70 transition-colors">
+                    {value.description}
+                  </p>
                 </div>
-                <h3 className="text-xl font-semibold text-card-foreground mb-3">
-                  {value.title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {value.description}
-                </p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Vision */}
-      <section className="py-24 bg-background snap-start">
-        <div className="container-max section-padding">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-foreground mb-6">
-                Our Vision
-              </h2>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                We envision a world where every business, regardless of size or industry, has access to the same quality of growth intelligence that was once reserved for large enterprises.
-              </p>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                A world where growth is measured honestly, trust is built authentically, and businesses compete on the strength of their value, not the depth of their pockets.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                NorthMetriX is building the infrastructure to make that vision a reality.
-              </p>
-            </div>
-            <div className="p-8 rounded-2xl bg-gradient-hero border border-soft-gray/10">
-              <blockquote className="text-xl text-soft-gray font-medium leading-relaxed">
-                "The future belongs to businesses that can see clearly through the noise and act on what truly matters."
-              </blockquote>
-              <p className="mt-4 text-soft-gray/60 text-sm">— NorthMetriX Team</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* CTA */}
-      <section className="py-20 bg-gradient-hero snap-start">
+      <section className="py-32 bg-black snap-start flex items-center justify-center">
         <div className="container-max section-padding text-center">
-          <h2 className="text-3xl font-bold text-soft-gray mb-4">
-            Join Us on This Journey
-          </h2>
-          <p className="text-soft-gray/70 mb-8 max-w-xl mx-auto">
-            Whether you're looking for growth intelligence or want to partner with us, we'd love to hear from you.
-          </p>
-          <Button variant="hero" size="lg" asChild>
-            <Link to="/contact">
-              Get in Touch
-              <ArrowRight className="ml-2" />
-            </Link>
-          </Button>
+          <Reveal>
+            <h2 className="text-4xl font-bold text-white mb-8">
+              Join Us on This Journey
+            </h2>
+            <Button variant="hero" size="lg" asChild className="bg-white text-black hover:bg-white/90 rounded-full px-10 h-16 text-lg">
+              <Link to="/contact">
+                Get in Touch
+              </Link>
+            </Button>
+          </Reveal>
         </div>
       </section>
     </Layout>

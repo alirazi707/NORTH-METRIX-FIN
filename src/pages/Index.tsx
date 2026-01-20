@@ -32,6 +32,7 @@ const Index = () => {
         transition={{ duration: 1.5 }}
       >
         <Layout>
+          <StarBackground />
           <HeroSection />
           <TrustMetricsPanel />
           <ProblemSection />
