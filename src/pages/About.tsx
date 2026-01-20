@@ -82,7 +82,7 @@ const About = () => {
 
       {/* Vision Section (First) - Premium Gradient */}
       <section className="min-h-[80vh] py-32 relative flex items-center snap-start">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0c0a09] via-[#1c1917] to-[#292524]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e1b4b] to-[#312e81]" />
 
         <div className="relative container-max section-padding z-10">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
@@ -123,7 +123,7 @@ const About = () => {
 
       {/* Mission Section (Second) - Unified Gradient */}
       <section className="py-32 relative snap-start">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0c0a09] via-[#1c1917] to-[#292524]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e1b4b] to-[#312e81]" />
 
         <div className="container-max section-padding relative z-10">
           <div className="max-w-4xl mx-auto text-center">
@@ -149,7 +149,7 @@ const About = () => {
 
       {/* Values Section (Third) - Unified Gradient */}
       <section className="py-32 relative snap-start">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0c0a09] via-[#1c1917] to-[#292524]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e1b4b] to-[#312e81]" />
 
         <div className="container-max section-padding relative z-10">
           <div className="text-center max-w-2xl mx-auto mb-20">
