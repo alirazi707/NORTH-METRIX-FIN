@@ -40,7 +40,7 @@ export function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled || servicesOpen
-        ? "bg-black/10 backdrop-blur-xl backdrop-saturate-150 border-b border-white/5 py-4 shadow-lg"
+        ? "bg-black/70 backdrop-blur-2xl backdrop-saturate-200 border-b border-white/10 py-4 shadow-xl"
         : "bg-transparent py-6"
         }`}
       onMouseLeave={() => setServicesOpen(false)}
