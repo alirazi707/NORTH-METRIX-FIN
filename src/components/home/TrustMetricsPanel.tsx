@@ -44,8 +44,10 @@ const certifications = [
 
 export function TrustMetricsPanel() {
   return (
-    <section className="py-24 relative text-white border-y border-white/10">
+    <section className="py-24 relative text-white">
       <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e1b4b] to-[#312e81]" />
+      {/* Top Blend Gradient */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black to-transparent z-10" />
       <div className="container-max section-padding relative z-10">
         <MotionWrapper>
           <div className="text-center mb-16">

@@ -71,6 +71,8 @@ const About = () => {
       {/* Vision Section (First) - Premium Gradient */}
       <section className="min-h-[80vh] py-32 relative flex items-center snap-start">
         <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e1b4b] to-[#312e81]" />
+        {/* Top Blend Gradient */}
+        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black to-transparent z-10" />
 
         <div className="relative container-max section-padding z-10">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
@@ -175,8 +177,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-32 bg-black snap-start flex items-center justify-center">
+      <section className="py-32 bg-gradient-to-br from-[#020617] via-[#1e1b4b] to-[#0f172a] snap-start flex items-center justify-center">
         <div className="container-max section-padding text-center">
           <Reveal>
             <h2 className="text-4xl font-bold text-white mb-8">

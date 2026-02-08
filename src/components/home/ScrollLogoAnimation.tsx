@@ -139,7 +139,7 @@ export function ScrollLogoAnimation({ onComplete }: ScrollLogoAnimationProps) {
 
     return (
         <motion.div
-            className="fixed inset-0 bg-black z-[-1] pointer-events-none transition-opacity duration-[2000ms] ease-in-out"
+            className="absolute inset-0 bg-black z-[-1] pointer-events-none transition-opacity duration-[2000ms] ease-in-out"
         // We handle opacity of the canvas container, but actually 
         // the request was: "black screen... logo opacity 30... landing page visible".
         // So the container BG should stay black (opacity 1).

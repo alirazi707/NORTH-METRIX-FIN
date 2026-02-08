@@ -6,7 +6,7 @@ import { Reveal } from "@/components/ui/Reveal";
 export function CTASection() {
   return (
     <section className="py-24 text-white overflow-hidden relative">
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e1b4b] to-[#312e81]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#020617] via-[#1e1b4b] to-[#0f172a]" />
 
       <div className="container-max section-padding relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
