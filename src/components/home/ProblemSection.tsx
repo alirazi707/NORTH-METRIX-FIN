@@ -21,8 +21,8 @@ const problems = [
 
 export function ProblemSection() {
   return (
-    <section className="py-32 relative text-white">
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e1b4b] to-[#312e81]" />
+    <section className="py-32 relative text-white bg-transparent">
+
       <div className="container-max section-padding relative z-10">
         {/* Section Header */}
         <MotionWrapper className="text-center max-w-3xl mx-auto mb-20">
@@ -40,12 +40,12 @@ export function ProblemSection() {
             <StaggerItem key={problem.title}>
               <div className="group relative p-10 h-full rounded-[2rem] bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/10 hover:shadow-2xl hover:shadow-indigo-500/20 transition-all duration-500 hover:-translate-y-3">
                 {/* Icon */}
-                <div className="w-16 h-16 rounded-full bg-blue-500/10 flex items-center justify-center mb-8 border border-blue-500/20 group-hover:bg-blue-600 transition-colors duration-500">
-                  <problem.icon className="w-8 h-8 text-blue-400 group-hover:text-white transition-colors duration-500" />
+                <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mb-8 border border-white/10 group-hover:bg-white/20 transition-colors duration-500">
+                  <problem.icon className="w-8 h-8 text-white group-hover:text-white transition-colors duration-500" />
                 </div>
 
                 {/* Content */}
-                <h3 className="text-2xl font-medium text-white mb-4 group-hover:text-blue-200 transition-colors">
+                <h3 className="text-2xl font-medium text-white mb-4 group-hover:text-white/90 transition-colors">
                   {problem.title}
                 </h3>
                 <p className="text-white/60 leading-relaxed font-light">

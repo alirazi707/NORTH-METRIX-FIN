@@ -44,10 +44,11 @@ const certifications = [
 
 export function TrustMetricsPanel() {
   return (
-    <section className="py-24 relative text-white">
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e1b4b] to-[#312e81]" />
-      {/* Top Blend Gradient */}
-      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black to-transparent z-10" />
+    <section className="py-24 relative text-white bg-transparent">
+      {/* Premium Soft Gradient Background - REMOVED */}
+
+      {/* Top Blend Gradient - REMOVED */}
+
       <div className="container-max section-padding relative z-10">
         <MotionWrapper>
           <div className="text-center mb-16">
@@ -65,8 +66,8 @@ export function TrustMetricsPanel() {
           {metrics.map((metric) => (
             <StaggerItem key={metric.label}>
               <div className="text-center p-8 h-full rounded-[2rem] bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/10 hover:shadow-2xl hover:shadow-indigo-500/20 transition-all duration-500 group hover:-translate-y-3">
-                <div className="w-14 h-14 mx-auto mb-6 flex items-center justify-center rounded-full bg-white/5 group-hover:bg-blue-500/20 transition-colors">
-                  <metric.icon className="w-7 h-7 text-white/50 group-hover:text-blue-400 transition-colors" />
+                <div className="w-14 h-14 mx-auto mb-6 flex items-center justify-center rounded-full bg-white/5 group-hover:bg-white/10 transition-colors">
+                  <metric.icon className="w-7 h-7 text-white/50 group-hover:text-white transition-colors" />
                 </div>
                 <div className="text-4xl font-bold text-white mb-2">
                   <CountUp

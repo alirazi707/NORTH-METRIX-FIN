@@ -1,87 +1,116 @@
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import React, { useRef, useEffect } from 'react';
 
 export const StarBackground = () => {
-    const [stars, setStars] = useState<{ id: number; x: number; y: number; size: number; duration: number; delay: number }[]>([]);
-    const [meteors, setMeteors] = useState<{ id: number; left: number; delay: number; duration: number }[]>([]);
+    const canvasRef = useRef<HTMLCanvasElement>(null);
 
     useEffect(() => {
-        // Generate random stars on client-side
-        const newStars = Array.from({ length: 50 }).map((_, i) => ({
-            id: i,
-            x: Math.random() * 100, // percentage
-            y: Math.random() * 100, // percentage
-            size: Math.random() * 2 + 1, // 1px to 3px
-            duration: Math.random() * 3 + 2, // 2s to 5s
-            delay: Math.random() * 2,
-        }));
-        setStars(newStars);
+        const canvas = canvasRef.current;
+        if (!canvas) return;
 
-        // Generate meteors
-        const newMeteors = Array.from({ length: 20 }).map((_, i) => ({
-            id: i,
-            left: Math.floor(Math.random() * (100 - -50) + -50), // Random horizontal start
-            delay: Math.random() * 10 + 0.2, // Random delay
-            duration: Math.floor(Math.random() * (10 - 2) + 2), // Random duration
-        }));
-        setMeteors(newMeteors);
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return;
+
+        let width = window.innerWidth;
+        let height = window.innerHeight;
+
+        const setSize = () => {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+        };
+
+        setSize();
+        window.addEventListener('resize', setSize);
+
+        // Star parameters for "Boehm Tech" intensity
+        const STAR_COUNT = 200; // Reduced intensity
+        const ROTATION_SPEED = 0.0002; // Slower revolving
+        const TRAVEL_SPEED = 0.5; // Much slower travel (calmer)
+
+        interface Star {
+            x: number;
+            y: number;
+            z: number;
+        }
+
+        const stars: Star[] = [];
+
+        // Initialize stars
+        for (let i = 0; i < STAR_COUNT; i++) {
+            stars.push({
+                x: Math.random() * width - width / 2,
+                y: Math.random() * height - height / 2,
+                z: Math.random() * width,
+            });
+        }
+
+        let animationFrameId: number;
+
+        const render = () => {
+            // Clear canvas (transparent to let global black show through)
+            ctx.clearRect(0, 0, width, height);
+
+            const cx = width / 2;
+            const cy = height / 2;
+
+            stars.forEach((star) => {
+                // 1. Move stars towards viewer (Travel)
+                star.z -= TRAVEL_SPEED;
+                if (star.z <= 0) {
+                    // Reset star to back
+                    star.z = width;
+                    star.x = Math.random() * width - width / 2;
+                    star.y = Math.random() * height - height / 2;
+                }
+
+                // 2. Rotate stars (Revolve) around center
+                // Basic 2D rotation matrix
+                const angle = ROTATION_SPEED;
+                const cos = Math.cos(angle);
+                const sin = Math.sin(angle);
+                const nx = star.x * cos - star.y * sin;
+                const ny = star.x * sin + star.y * cos;
+                star.x = nx;
+                star.y = ny;
+
+                // 3. Project to 2D
+                const k = 128.0 / star.z; // Perspective factor
+                const px = star.x * k + cx;
+                const py = star.y * k + cy;
+
+                // 4. Draw
+                if (px >= 0 && px <= width && py >= 0 && py <= height) {
+                    const size = (1 - star.z / width) * 1.5;
+                    let opacity = (1 - star.z / width) * 0.5;
+
+                    // Smooth fade out as star approaches screen (prevent popping)
+                    if (star.z < 100) {
+                        opacity *= star.z / 100;
+                    }
+
+                    ctx.beginPath();
+                    ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
+                    ctx.arc(px, py, size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            });
+
+            animationFrameId = requestAnimationFrame(render);
+        };
+
+        render();
+
+        return () => {
+            window.removeEventListener('resize', setSize);
+            cancelAnimationFrame(animationFrameId);
+        };
     }, []);
 
     return (
-        <div className="absolute inset-0 overflow-hidden z-0 pointer-events-none">
-            {stars.map((star) => (
-                <motion.div
-                    key={star.id}
-                    className="absolute bg-white/80 rounded-full"
-                    style={{
-                        left: `${star.x}%`,
-                        top: `${star.y}%`,
-                        width: star.size,
-                        height: star.size,
-                    }}
-                    animate={{
-                        opacity: [0.2, 1, 0.2],
-                        scale: [1, 1.2, 1],
-                        y: [0, -10, 0] // slight float up effect
-                    }}
-                    transition={{
-                        duration: star.duration,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                        delay: star.delay,
-                    }}
-                />
-            ))}
-
-            {/* Meteor Styles */}
-            <style>{`
-                @keyframes meteor {
-                    0% { transform: rotate(215deg) translateX(0); opacity: 1; }
-                    70% { opacity: 1; }
-                    100% { transform: rotate(215deg) translateX(-500px); opacity: 0; }
-                }
-                .meteor-effect {
-                    animation-name: meteor;
-                    animation-timing-function: linear;
-                    animation-iteration-count: infinite;
-                }
-            `}</style>
-
-            {/* Meteors */}
-            {meteors.map((meteor) => (
-                <span
-                    key={meteor.id}
-                    className="absolute top-0 left-1/2 h-0.5 w-0.5 rounded-[9999px] bg-slate-500 shadow-[0_0_0_1px_#ffffff10] rotate-[215deg] meteor-effect opacity-0"
-                    style={{
-                        left: meteor.left + "%",
-                        animationDelay: meteor.delay + "s",
-                        animationDuration: meteor.duration + "s",
-                    }}
-                >
-                    {/* Meteor Tail */}
-                    <div className="pointer-events-none absolute top-1/2 -z-10 h-[1px] w-[50px] -translate-y-1/2 bg-gradient-to-r from-slate-500 to-transparent" />
-                </span>
-            ))}
-        </div>
+        <canvas
+            ref={canvasRef}
+            className="fixed inset-0 z-0 pointer-events-none"
+        />
     );
 };

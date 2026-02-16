@@ -24,7 +24,7 @@ export function ServicesMenu({ isOpen, onClose }: ServicesMenuProps) {
                             {serviceCategories.map((category) => (
                                 <div key={category.title} className="group">
                                     <div className="flex items-center gap-3 mb-4">
-                                        <category.icon className="w-6 h-6 text-[#A4133C]" />
+                                        <category.icon className="w-6 h-6 text-white" />
                                         <h3 className="text-lg font-medium text-white">
                                             {category.title}
                                         </h3>
@@ -47,7 +47,7 @@ export function ServicesMenu({ isOpen, onClose }: ServicesMenuProps) {
                         </div>
 
                         <div className="mt-12 pt-8 border-t border-white/10 flex justify-end">
-                            <Link to="/services" onClick={onClose} className="text-sm font-medium text-[#A4133C] hover:text-[#C4234C] flex items-center gap-2">
+                            <Link to="/services" onClick={onClose} className="text-sm font-medium text-white hover:text-white/80 flex items-center gap-2">
                                 View All Services &rarr;
                             </Link>
                         </div>

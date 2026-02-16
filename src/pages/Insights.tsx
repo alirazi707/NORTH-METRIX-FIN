@@ -54,11 +54,11 @@ const Insights = () => {
   return (
     <Layout enableSnap={true}>
       {/* Hero Section - 100vh with Stars */}
-      <section className="h-screen w-full bg-black relative flex items-center justify-center overflow-hidden snap-start">
+      <section className="h-screen w-full bg-transparent relative flex items-center justify-center overflow-hidden snap-start">
         <StarBackground />
 
-        {/* Subtle dark gradient overlay for depth */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/80 pointer-events-none" />
+        {/* Subtle dark gradient overlay for depth - REMOVED */}
+        {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/80 pointer-events-none" /> */}
 
         <div className="relative container-max section-padding z-10 text-center">
           <Reveal>
@@ -88,11 +88,11 @@ const Insights = () => {
       </section>
 
       {/* Insights Grid Section */}
-      <section className="min-h-screen py-40 relative flex items-center snap-start">
-        {/* Premium Soft Gradient Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e1b4b] to-[#312e81]" />
-        {/* Top Blend Gradient */}
-        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black to-transparent z-10" />
+      <section className="min-h-screen py-40 relative flex items-center snap-start bg-transparent">
+        {/* Premium Soft Gradient Background - REMOVED */}
+
+        {/* Top Blend Gradient - REMOVED */}
+
 
         <div className="relative container-max section-padding z-10">
           <div className="text-center max-w-3xl mx-auto mb-20">
@@ -114,12 +114,12 @@ const Insights = () => {
                 {/* Premium Card Layout - Clean text */}
                 <div className="h-full group p-8 rounded-[2rem] bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/10 hover:shadow-2xl hover:shadow-indigo-500/20 transition-all duration-500 flex flex-col hover:-translate-y-3">
                   <div className="mb-6 flex items-center justify-between">
-                    <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-blue-200">
+                    <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-white/80">
                       {post.type}
                     </span>
                     <span className="text-xs text-white/40">{post.readTime}</span>
                   </div>
-                  <h3 className="text-2xl font-semibold text-white mb-4 group-hover:text-blue-200 transition-colors">
+                  <h3 className="text-2xl font-semibold text-white mb-4 group-hover:text-white/90 transition-colors">
                     {post.title}
                   </h3>
                   <p className="text-white/60 mb-8 leading-relaxed font-light">
@@ -137,7 +137,7 @@ const Insights = () => {
         </div>
       </section>
 
-      <section className="py-32 bg-gradient-to-br from-[#020617] via-[#1e1b4b] to-[#0f172a] snap-start flex items-center justify-center">
+      <section className="py-32 bg-transparent snap-start flex items-center justify-center">
         <div className="container-max section-padding text-center">
           <Reveal>
             <h2 className="text-4xl font-bold text-white mb-8">

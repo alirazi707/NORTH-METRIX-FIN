@@ -27,11 +27,11 @@ const Trust = () => {
   return (
     <Layout enableSnap={true}>
       {/* Hero Section - With Star Background */}
-      <section className="h-screen w-full bg-black relative flex items-center justify-center overflow-hidden snap-start">
+      <section className="h-screen w-full bg-transparent relative flex items-center justify-center overflow-hidden snap-start">
         <StarBackground />
 
-        {/* Subtle dark gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/80 pointer-events-none" />
+        {/* Subtle dark gradient overlay - REMOVED */}
+        {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/80 pointer-events-none" /> */}
 
         <div className="relative container-max section-padding z-10 text-center">
           <Reveal>
@@ -89,7 +89,7 @@ const Trust = () => {
       </section>
 
       {/* Policies */}
-      <section className="py-32 bg-black snap-start">
+      <section className="py-32 bg-transparent snap-start">
         <div className="container-max section-padding">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <div>

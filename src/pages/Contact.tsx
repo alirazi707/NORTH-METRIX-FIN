@@ -54,11 +54,11 @@ const Contact = () => {
   return (
     <Layout enableSnap={true}>
       {/* Hero / Form Section - Single Page Feel */}
-      <section className="min-h-screen w-full bg-black relative flex items-center justify-center overflow-hidden snap-start py-32">
+      <section className="min-h-screen w-full bg-transparent relative flex items-center justify-center overflow-hidden snap-start py-32">
         <StarBackground />
 
-        {/* Subtle dark gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/80 pointer-events-none" />
+        {/* Subtle dark gradient overlay - REMOVED */}
+        {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/80 pointer-events-none" /> */}
 
         <div className="relative container-max section-padding z-10 w-full">
           <div className="grid lg:grid-cols-2 gap-16 lg:items-start">
@@ -89,7 +89,7 @@ const Contact = () => {
                         <info.icon className="w-6 h-6 text-white" />
                       </div>
                       <div>
-                        <h3 className="font-medium text-white mb-1 group-hover:text-blue-200 transition-colors">{info.title}</h3>
+                        <h3 className="font-medium text-white mb-1 group-hover:text-white/90 transition-colors">{info.title}</h3>
                         {info.href ? (
                           <a
                             href={info.href}

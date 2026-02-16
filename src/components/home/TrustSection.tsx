@@ -43,7 +43,7 @@ export function TrustSection() {
               <StaggerItem key={point.title}>
                 <div className="text-center">
                   <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                    <point.icon className="w-8 h-8 text-teal-accent" />
+                    <point.icon className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-lg font-semibold text-off-white mb-2">
                     {point.title}

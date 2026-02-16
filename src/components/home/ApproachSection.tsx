@@ -31,8 +31,8 @@ const steps = [
 
 export function ApproachSection() {
     return (
-        <section className="py-24 relative text-white overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e1b4b] to-[#312e81]" />
+        <section className="py-24 relative text-white overflow-hidden bg-transparent">
+
             <div className="container-max section-padding relative z-10">
                 {/* Header */}
                 <div className="mb-20 text-center">
@@ -68,10 +68,10 @@ export function ApproachSection() {
                                 whileInView={{ scale: 1, opacity: 1 }}
                                 viewport={{ once: false }}
                                 transition={{ delay: index * 0.3, duration: 0.5, type: "spring" }}
-                                className="w-24 h-24 mx-auto rounded-full bg-[#0f172a] border border-white/10 flex items-center justify-center mb-8 relative group hover:border-white/30 hover:bg-white/10 hover:shadow-2xl hover:shadow-indigo-500/20 transition-all duration-300"
+                                className="w-24 h-24 mx-auto rounded-full bg-[#0f172a] border border-white/10 flex items-center justify-center mb-8 relative group hover:border-white/30 hover:bg-white/10 hover:shadow-2xl hover:shadow-white/10 transition-all duration-300"
                             >
                                 <div className="absolute inset-2 rounded-full border border-white/5 group-hover:border-white/10 transition-colors" />
-                                <step.icon className="w-8 h-8 text-white/80 group-hover:text-blue-200 transition-colors duration-300" />
+                                <step.icon className="w-8 h-8 text-white/80 group-hover:text-white transition-colors duration-300" />
                                 <div className="absolute -top-3 -right-3 w-8 h-8 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center text-xs font-bold text-white shadow-lg">
                                     {step.id}
                                 </div>
@@ -106,8 +106,8 @@ export function ApproachSection() {
                             transition={{ delay: index * 0.2 }}
                             className="relative z-10 pl-12"
                         >
-                            <div className="absolute left-0 top-0 w-24 h-24 -ml-12 rounded-full bg-[#0f172a] border border-white/10 flex items-center justify-center group hover:border-white/30 hover:bg-white/10 hover:shadow-2xl hover:shadow-indigo-500/20 transition-all duration-300">
-                                <step.icon className="w-8 h-8 text-white/80 group-hover:text-blue-200 transition-colors duration-300" />
+                            <div className="absolute left-0 top-0 w-24 h-24 -ml-12 rounded-full bg-[#0f172a] border border-white/10 flex items-center justify-center group hover:border-white/30 hover:bg-white/10 hover:shadow-2xl hover:shadow-white/10 transition-all duration-300">
+                                <step.icon className="w-8 h-8 text-white/80 group-hover:text-white transition-colors duration-300" />
                                 <div className="absolute -top-1 -right-1 w-6 h-6 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center text-[10px] font-bold text-white shadow-lg">
                                     {step.id}
                                 </div>

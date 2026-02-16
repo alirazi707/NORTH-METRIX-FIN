@@ -27,8 +27,8 @@ const reasons = [
 
 export function WhySection() {
   return (
-    <section className="py-32 relative text-white">
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e1b4b] to-[#312e81]" />
+    <section className="py-32 relative text-white bg-transparent">
+
 
       <div className="container-max section-padding relative z-10">
         <div className="grid lg:grid-cols-2 gap-20 items-start">
@@ -67,10 +67,10 @@ export function WhySection() {
             {reasons.map((reason) => (
               <StaggerItem key={reason.title}>
                 <div className="h-full group p-8 rounded-[2rem] bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/10 hover:shadow-2xl hover:shadow-indigo-500/20 transition-all duration-500 flex flex-col hover:-translate-y-3">
-                  <div className="w-12 h-12 flex items-center justify-center mb-6 text-white/30 group-hover:text-blue-400 transition-colors duration-300">
+                  <div className="w-12 h-12 flex items-center justify-center mb-6 text-white/30 group-hover:text-white transition-colors duration-300">
                     <reason.icon className="w-8 h-8" />
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-200 transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-white/90 transition-colors duration-300">
                     {reason.title}
                   </h3>
                   <p className="text-white/50 leading-relaxed font-light">

@@ -4,7 +4,6 @@ import { TrustedBySection } from "@/components/home/TrustedBySection";
 import { TrustMetricsPanel } from "@/components/home/TrustMetricsPanel";
 import { ProblemSection } from "@/components/home/ProblemSection";
 import { SolutionSection } from "@/components/home/SolutionSection";
-import { ServicesSection } from "@/components/home/ServicesSection";
 import { ApproachSection } from "@/components/home/ApproachSection";
 import { WhySection } from "@/components/home/WhySection";
 import { UseCasesSection } from "@/components/home/UseCasesSection";
@@ -37,7 +36,6 @@ const Index = () => {
           <HeroSection />
           <TrustMetricsPanel />
           <ProblemSection />
-          <ServicesSection />
           <ApproachSection />
           <WhySection />
           <InsightsSection />

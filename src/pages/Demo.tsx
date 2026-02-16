@@ -1,6 +1,8 @@
 import { Home, Briefcase, Building2, FileText, Info, Mail } from 'lucide-react';
 import { TubelightNavbar } from "@/components/ui/tubelight-navbar";
 import { Layout } from "@/components/layout/Layout";
+import { StarBackground } from "@/components/ui/StarBackground";
+import { Reveal } from "@/components/ui/Reveal";
 
 const Demo = () => {
     const navItems = [
@@ -13,50 +15,52 @@ const Demo = () => {
     ];
 
     return (
-        <Layout>
-            <TubelightNavbar items={navItems} />
+        <Layout enableSnap={true}>
+            <section className="h-screen w-full bg-transparent relative flex items-center justify-center overflow-hidden snap-start">
+                <StarBackground />
 
-            <section className="pt-32 pb-20 min-h-screen bg-gradient-hero relative overflow-hidden">
-                <div className="absolute inset-0">
-                    <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-                </div>
-
-                <div className="relative container-max section-padding">
-                    <div className="max-w-3xl mx-auto text-center">
-                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
-                            <span className="text-sm font-medium text-primary">Demo</span>
+                <div className="relative container-max section-padding z-10 text-center">
+                    <Reveal>
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-sm">
+                            <span className="text-sm font-medium text-white/90 tracking-wide">Component Demo</span>
                         </div>
+                    </Reveal>
 
-                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-soft-gray mb-6">
-                            Tubelight Navbar Demo
+                    <Reveal delay={0.1}>
+                        <h1 className="text-5xl sm:text-6xl md:text-7xl font-light text-white mb-8 tracking-tight">
+                            Tubelight <span className="font-medium text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/50">Navbar</span>
                         </h1>
+                    </Reveal>
 
-                        <p className="text-lg sm:text-xl text-soft-gray/70 mb-8">
+                    <Reveal delay={0.2}>
+                        <p className="text-xl sm:text-2xl text-white/60 font-light mb-12 max-w-3xl mx-auto leading-relaxed">
                             An animated navigation component with a glowing tubelight effect that follows the active tab.
                         </p>
+                    </Reveal>
 
-                        <div className="p-8 rounded-2xl bg-muted/50 border border-border text-left">
-                            <h2 className="text-xl font-semibold text-foreground mb-4">Features</h2>
-                            <ul className="space-y-3 text-muted-foreground">
-                                <li className="flex items-center gap-3">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                                    Smooth spring animations via framer-motion
-                                </li>
-                                <li className="flex items-center gap-3">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                                    Responsive design with icons on mobile, text on desktop
-                                </li>
-                                <li className="flex items-center gap-3">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                                    Glowing tubelight effect follows active navigation item
-                                </li>
-                                <li className="flex items-center gap-3">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                                    Fully integrated with React Router
-                                </li>
+                    <Reveal delay={0.3}>
+                        <div className="p-10 rounded-[2rem] bg-white/5 border border-white/10 backdrop-blur-md max-w-2xl mx-auto text-left">
+                            <h2 className="text-2xl font-semibold text-white mb-6">Features</h2>
+                            <ul className="space-y-4">
+                                {[
+                                    "Smooth spring animations via framer-motion",
+                                    "Responsive design with icons on mobile, text on desktop",
+                                    "Glowing tubelight effect follows active navigation item",
+                                    "Fully integrated with React Router"
+                                ].map((item) => (
+                                    <li key={item} className="flex items-start gap-3 text-white/60 font-light">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-white/40 mt-2.5 flex-shrink-0" />
+                                        {item}
+                                    </li>
+                                ))}
                             </ul>
                         </div>
-                    </div>
+                    </Reveal>
+                </div>
+
+                {/* Navbar Demo Instance */}
+                <div className="absolute bottom-10 left-0 right-0 z-50 flex justify-center">
+                    <TubelightNavbar items={navItems} />
                 </div>
             </section>
         </Layout>

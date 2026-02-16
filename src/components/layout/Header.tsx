@@ -61,7 +61,7 @@ export function Header() {
                 <Link
                   to={item.href}
                   className={`text-sm tracking-widest uppercase font-medium transition-colors duration-300 relative group flex items-center gap-1 ${isActive(item.href)
-                    ? "text-white" // Active state
+                    ? "text-white" // Active state - White
                     : "text-white/60 hover:text-white" // Inactive state
                     }`}
                 >
@@ -100,7 +100,7 @@ export function Header() {
                   to={item.href}
                   onClick={() => setMobileMenuOpen(false)}
                   className={`text-2xl font-light tracking-wider uppercase transition-colors ${isActive(item.href)
-                    ? "text-primary"
+                    ? "text-white"
                     : "text-muted-foreground hover:text-foreground"
                     }`}
                 >

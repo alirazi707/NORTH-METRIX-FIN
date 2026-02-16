@@ -11,7 +11,7 @@ export function ScrollDemo() {
                         <>
                             <h1 className="text-4xl font-semibold text-foreground">
                                 Unleash the power of <br />
-                                <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none bg-gradient-to-r from-teal-accent to-teal-glow bg-clip-text text-transparent">
+                                <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none text-white">
                                     Scroll Animations
                                 </span>
                             </h1>

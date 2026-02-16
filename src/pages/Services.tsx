@@ -12,11 +12,11 @@ const Services = () => {
   return (
     <Layout enableSnap={true}>
       {/* Hero Section - 100vh with Stars */}
-      <section className="h-screen w-full bg-black relative flex items-center justify-center overflow-hidden snap-start">
+      <section className="h-screen w-full bg-transparent relative flex items-center justify-center overflow-hidden snap-start">
         <StarBackground />
 
-        {/* Subtle dark gradient overlay for depth */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/80 pointer-events-none" />
+        {/* Subtle dark gradient overlay for depth - REMOVED */}
+        {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/80 pointer-events-none" /> */}
 
         <div className="relative container-max section-padding z-10 text-center">
           <Reveal>
@@ -46,11 +46,11 @@ const Services = () => {
       </section>
 
       {/* Services Grid Section */}
-      <section className="min-h-screen py-40 relative flex items-center snap-start" id="services-grid">
-        {/* Premium Soft Gradient Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e1b4b] to-[#312e81]" />
-        {/* Top Blend Gradient */}
-        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black to-transparent z-10" />
+      <section className="min-h-screen py-40 relative flex items-center snap-start bg-transparent" id="services-grid">
+        {/* Premium Soft Gradient Background - REMOVED */}
+
+        {/* Top Blend Gradient - REMOVED */}
+
 
         <div className="relative container-max section-padding z-10">
           <div className="text-center max-w-3xl mx-auto mb-20">
@@ -73,10 +73,10 @@ const Services = () => {
                 <div className="h-full group p-10 rounded-[2rem] bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/10 hover:shadow-2xl hover:shadow-indigo-500/20 transition-all duration-500 flex flex-col hover:-translate-y-3">
                   <div className="mb-6">
                     <span className="text-xs font-bold tracking-[0.2em] text-white/40 uppercase">
-                      CATEGORY 0{index + 1}
+                      CATEGORY {index + 1 < 10 ? `0${index + 1}` : index + 1}
                     </span>
                   </div>
-                  <h3 className="text-3xl font-semibold text-white mb-6 group-hover:text-blue-200 transition-colors">
+                  <h3 className="text-3xl font-semibold text-white mb-6 group-hover:text-white/90 transition-colors">
                     {category.title}
                   </h3>
 
@@ -97,7 +97,7 @@ const Services = () => {
         </div>
       </section>
 
-      <section className="py-32 bg-gradient-to-br from-[#020617] via-[#1e1b4b] to-[#0f172a] snap-start flex items-center justify-center">
+      <section className="py-32 bg-transparent snap-start flex items-center justify-center">
         <div className="container-max section-padding text-center">
           <Reveal>
             <h2 className="text-4xl font-bold text-white mb-8">
