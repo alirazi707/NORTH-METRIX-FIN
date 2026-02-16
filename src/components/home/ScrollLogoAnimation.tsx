@@ -83,7 +83,8 @@ export function ScrollLogoAnimation({ onComplete }: ScrollLogoAnimationProps) {
                 animationFrameId = requestAnimationFrame(animate);
             } else {
                 // Animation Complete
-                setOpacity(0.3);
+                const isMobile = window.innerWidth < 768;
+                setOpacity(isMobile ? 0 : 0.3);
                 if (onCompleteRef.current) onCompleteRef.current();
             }
         };
@@ -118,8 +119,9 @@ export function ScrollLogoAnimation({ onComplete }: ScrollLogoAnimationProps) {
             const w = img.width * scale;
             const h = img.height * scale;
             // Center (canvas.width - w) / 2
-            // Then add 15% of width to move it "bit right" as requested
-            const x = ((canvas.width - w) / 2) + (canvas.width * 0.15);
+            // Then add 15% of width to move it "bit right" as requested (ONLY ON DESKTOP)
+            const isMobile = canvas.width < 768;
+            const x = ((canvas.width - w) / 2) + (isMobile ? 0 : (canvas.width * 0.15));
             const y = (canvas.height - h) / 2;
 
             ctx.clearRect(0, 0, canvas.width, canvas.height);
