@@ -14,8 +14,8 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email",
-    value: "contact@northmetrix.ai",
-    href: "mailto:contact@northmetrix.ai",
+    value: "info@northmetrix.com",
+    href: "mailto:info@northmetrix.com",
   },
   {
     icon: Clock,
@@ -40,15 +40,44 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    toast({
-      title: "Message sent",
-      description: "We'll get back to you within 24 hours.",
-    });
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/info@northmetrix.com", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          company: data.company,
+          service: data.service,
+          message: data.message,
+          _subject: `New contact from ${data.name} on Northmetrix`
+        })
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        toast({
+          title: "Message sent",
+          description: "We'll get back to you within 24 hours.",
+        });
+      } else {
+        throw new Error("Failed to send message");
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -135,6 +164,7 @@ const Contact = () => {
                         <Label htmlFor="name" className="text-white/80">Name</Label>
                         <Input
                           id="name"
+                          name="name"
                           placeholder="Your name"
                           required
                           className="bg-white/5 border-white/10 text-white placeholder:text-white/30 focus:border-white/30 focus:ring-0 transition-all rounded-xl h-12"
@@ -144,6 +174,7 @@ const Contact = () => {
                         <Label htmlFor="email" className="text-white/80">Email</Label>
                         <Input
                           id="email"
+                          name="email"
                           type="email"
                           placeholder="you@company.com"
                           required
@@ -156,6 +187,7 @@ const Contact = () => {
                       <Label htmlFor="company" className="text-white/80">Company</Label>
                       <Input
                         id="company"
+                        name="company"
                         placeholder="Your company name"
                         className="bg-white/5 border-white/10 text-white placeholder:text-white/30 focus:border-white/30 focus:ring-0 transition-all rounded-xl h-12"
                       />
@@ -163,7 +195,7 @@ const Contact = () => {
 
                     <div className="space-y-2">
                       <Label htmlFor="service" className="text-white/80">Service Type *</Label>
-                      <Select required>
+                      <Select name="service" required>
                         <SelectTrigger className="bg-white/5 border-white/10 text-white focus:border-white/30 focus:ring-0 transition-all rounded-xl h-12">
                           <SelectValue placeholder="Select a service" />
                         </SelectTrigger>
@@ -184,6 +216,7 @@ const Contact = () => {
                       <Label htmlFor="message" className="text-white/80">Message</Label>
                       <Textarea
                         id="message"
+                        name="message"
                         placeholder="Tell us more about your needs..."
                         rows={5}
                         required
