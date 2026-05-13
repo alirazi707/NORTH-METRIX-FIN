@@ -5,12 +5,18 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Mail, MapPin, Clock, Send, CheckCircle } from "lucide-react";
+import { Mail, MapPin, Clock, Send, CheckCircle, Phone } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { Reveal } from "@/components/ui/Reveal";
 import { StarBackground } from "@/components/ui/StarBackground";
 
 const contactInfo = [
+  {
+    icon: Phone,
+    title: "Phone",
+    value: "+91 92077 77229",
+    href: "tel:+919207777229",
+  },
   {
     icon: Mail,
     title: "Email",

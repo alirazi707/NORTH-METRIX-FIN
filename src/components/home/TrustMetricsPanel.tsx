@@ -1,6 +1,7 @@
 import { Shield, Award, CheckCircle, TrendingUp } from "lucide-react";
 import { MotionWrapper, StaggerContainer, StaggerItem } from "@/components/ui/motion-wrapper";
 import { CountUp } from "@/components/ui/CountUp";
+import { ManifestoSection } from "@/components/home/ManifestoSection";
 
 const metrics = [
   {
@@ -35,16 +36,15 @@ const metrics = [
   },
 ];
 
-const certifications = [
-  { name: "SOC 2 Type II", status: "Certified" },
-  { name: "GDPR", status: "Compliant" },
-  { name: "ISO 27001", status: "Certified" },
-  { name: "HIPAA", status: "Ready" },
-];
+
 
 export function TrustMetricsPanel() {
   return (
-    <section className="py-24 relative text-white bg-transparent">
+    <>
+      {/* Cinematic manifesto — scrolls into Trust section */}
+      <ManifestoSection />
+
+      <section className="py-24 relative text-white bg-transparent">
       {/* Premium Soft Gradient Background - REMOVED */}
 
       {/* Top Blend Gradient - REMOVED */}
@@ -84,22 +84,9 @@ export function TrustMetricsPanel() {
           ))}
         </StaggerContainer>
 
-        {/* Certifications Bar */}
-        <MotionWrapper delay={0.3}>
-          <div className="flex flex-wrap justify-center gap-6">
-            {certifications.map((cert) => (
-              <div
-                key={cert.name}
-                className="flex items-center gap-3 px-6 py-3 rounded-full bg-transparent border border-white/10 hover:border-white/50 transition-colors duration-300"
-              >
-                <CheckCircle className="w-4 h-4 text-white" />
-                <span className="text-sm font-medium text-white/70">{cert.name}</span>
-                <span className="text-xs text-white font-bold uppercase tracking-wider">{cert.status}</span>
-              </div>
-            ))}
-          </div>
-        </MotionWrapper>
+
       </div>
-    </section>
+      </section>
+    </>
   );
 }

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Phone, Mail } from "lucide-react";
 import logo from "@/assets/logo.svg"; // Updated logo path
 
 const footerLinks = {
@@ -36,9 +37,25 @@ export function Footer() {
               <Link to="/" className="inline-block mb-8">
                 <img src={logo} alt="NorthMetriX" className="h-10 w-auto invert brightness-0" />
               </Link>
-              <h3 className="text-2xl font-light leading-snug max-w-sm text-white/90 mb-8">
+              <h3 className="text-2xl font-light leading-snug max-w-sm text-white/90 mb-6">
                 Growth intelligence and reputation analytics for businesses that value clarity.
               </h3>
+              <div className="flex flex-col gap-3">
+                <a
+                  href="tel:+919207777229"
+                  className="inline-flex items-center gap-2 text-white/60 hover:text-white transition-colors text-sm"
+                >
+                  <Phone className="w-4 h-4" />
+                  +91 92077 77229
+                </a>
+                <a
+                  href="mailto:info@northmetrix.com"
+                  className="inline-flex items-center gap-2 text-white/60 hover:text-white transition-colors text-sm"
+                >
+                  <Mail className="w-4 h-4" />
+                  info@northmetrix.com
+                </a>
+              </div>
             </div>
 
             <div className="hidden lg:block">
