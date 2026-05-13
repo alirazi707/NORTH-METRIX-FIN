@@ -10,6 +10,7 @@ import { UseCasesSection } from "@/components/home/UseCasesSection";
 import { InsightsSection } from "@/components/home/InsightsSection";
 import { TrustSection } from "@/components/home/TrustSection";
 import { CTASection } from "@/components/home/CTASection";
+import { ContactAdvisorSection } from "@/components/home/ContactAdvisorSection";
 import { ScrollLogoAnimation } from "@/components/home/ScrollLogoAnimation";
 import { StarBackground } from "@/components/ui/StarBackground";
 import { useState, useCallback } from "react";
@@ -39,6 +40,7 @@ const Index = () => {
           <ApproachSection />
           <WhySection />
           <InsightsSection />
+          <ContactAdvisorSection />
           <CTASection />
           {/* <TrustedBySection /> - Optional, keeping it out for pure minimalism for now unless requested */}
         </Layout>
